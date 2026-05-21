@@ -1,5 +1,5 @@
 {
-  "name": "subscription-portal-client",
+  "name": "subscription-portal-frontend",
   "private": true,
   "version": "1.0.0",
   "type": "module",
