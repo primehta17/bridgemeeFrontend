@@ -448,18 +448,18 @@ export default function AdminDashboard() {
                       <tr key={u.id}>
                         <td>{u.name}</td>
                         <td>{u.email}</td>
-                        <td>{u.currentSubscription?.planId?.name || '—'}</td>
+                        <td>{u.currentSubscription?.planId?.name || '-'}</td>
                         <td>
                         {u.currentSubscription ? (
                           <StatusBadge status={u.currentSubscription.status} />
                         ) : (
-                            '—'
+                            '-'
                           )}
                         </td>
                         <td>
                           {u.currentSubscription
                             ? formatDate(u.currentSubscription.endDate)
-                            : '—'}
+                            : '-'}
                         </td>
                       </tr>
                     ))
@@ -516,7 +516,7 @@ export default function AdminDashboard() {
                           <br />
                           <span className="muted small">{sub.userId?.email}</span>
                         </td>
-                        <td>{sub.planId?.name || '—'}</td>
+                        <td>{sub.planId?.name || '-'}</td>
                       <td>
                         <StatusBadge status={sub.status} />
                       </td>

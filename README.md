@@ -1,4 +1,4 @@
-# BridgeMee — Frontend
+# BridgeMee - Frontend
 
 React + Vite single-page app for login, registration, user dashboard, and admin dashboard.
 
@@ -20,7 +20,7 @@ npm run dev
 
 App: `http://localhost:3000` (dev proxy sends `/api` to `http://localhost:5000`).
 
-> **Monorepo:** If you downloaded the full project, this code is in the `client/` folder — run the commands above from `client/` instead of `bridgemeeFrontend/`.
+> **Monorepo:** If you downloaded the full project, this code is in the `client/` folder - run the commands above from `client/` instead of `bridgemeeFrontend/`.
 
 ## Backend (local)
 

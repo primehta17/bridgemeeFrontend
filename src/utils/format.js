@@ -6,7 +6,7 @@ export const formatDate = (value, options = {}) =>
         day: 'numeric',
         ...options,
       })
-    : '—';
+    : '-';
 
 export const formatDateTime = (value) =>
   value
@@ -17,7 +17,7 @@ export const formatDateTime = (value) =>
         hour: '2-digit',
         minute: '2-digit',
       })
-    : '—';
+    : '-';
 
 export const formatPrice = (amount) =>
   new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(amount);

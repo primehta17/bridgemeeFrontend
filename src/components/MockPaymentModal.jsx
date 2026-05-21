@@ -52,7 +52,7 @@ export default function MockPaymentModal({ open, plan, actionLabel, onClose, onS
           <div>
             <h2 id="payment-title">Mock payment</h2>
             <p className="subtitle">
-              Demo checkout for <strong>{plan.name}</strong> — {formatPrice(plan.price)} /{' '}
+              Demo checkout for <strong>{plan.name}</strong> - {formatPrice(plan.price)} /{' '}
               {plan.billingCycle}
             </p>
           </div>
@@ -61,7 +61,7 @@ export default function MockPaymentModal({ open, plan, actionLabel, onClose, onS
           </button>
         </header>
 
-        <p className="mock-badge">No real charges — test card only</p>
+        <p className="mock-badge">No real charges - test card only</p>
 
         {error && <div className="alert alert-error">{error}</div>}
 

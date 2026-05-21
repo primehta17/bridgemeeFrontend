@@ -159,7 +159,7 @@ export default function UserDashboard() {
                     .filter((p) => p._id !== activePlan?._id)
                     .map((p) => (
                       <option key={p._id} value={p._id}>
-                        {p.name} — {formatPrice(p.price)} / {p.billingCycle}
+                        {p.name} - {formatPrice(p.price)} / {p.billingCycle}
                       </option>
                     ))}
                 </select>
@@ -248,7 +248,7 @@ export default function UserDashboard() {
                   const p = planRef(sub);
                   return (
                     <tr key={sub._id}>
-                      <td>{p?.name || '—'}</td>
+                      <td>{p?.name || '-'}</td>
                       <td>
                         <StatusBadge status={sub.status} />
                       </td>
@@ -257,7 +257,7 @@ export default function UserDashboard() {
                       <td className="muted small">
                         {sub.lastPayment?.mockTransactionId
                           ? `•••• ${sub.lastPayment.cardLast4}`
-                          : '—'}
+                          : '-'}
                       </td>
                       <td>
                         {sub.status === 'active' && new Date(sub.endDate) >= new Date() && (
