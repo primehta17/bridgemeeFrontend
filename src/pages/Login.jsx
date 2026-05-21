@@ -40,40 +40,54 @@ export default function Login() {
   };
 
   return (
-    <article className="auth-card">
-      <h1>Welcome back</h1>
-      <p className="subtitle">Sign in to manage your subscriptions</p>
-      <Alert type="error" message={error} />
-      <form onSubmit={handleSubmit} className="form" noValidate>
-        <label htmlFor="login-email">
-          Email
-          <input
-            id="login-email"
-            type="email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            required
-            autoComplete="email"
-          />
-        </label>
-        <label htmlFor="login-password">
-          Password
-          <input
-            id="login-password"
-            type="password"
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            required
-            autoComplete="current-password"
-          />
-        </label>
-        <button type="submit" className="btn btn-primary" disabled={submitting}>
-          {submitting ? 'Signing in…' : 'Sign in'}
-        </button>
-      </form>
-      <p className="auth-footer">
-        No account? <Link to="/register">Register</Link>
-      </p>
-    </article>
+    <div className="auth-page">
+      <aside className="auth-hero" aria-hidden="true">
+        <p className="auth-hero-tag">Subscription management</p>
+        <h2 className="auth-hero-title">Your plans, one bridge away.</h2>
+        <p className="auth-hero-desc">
+          Subscribe, upgrade, or cancel - all in a clear dashboard built for clarity.
+        </p>
+        <ul className="auth-hero-list">
+          <li>Compare plans side by side</li>
+          <li>Secure mock checkout for demos</li>
+          <li>Full subscription history</li>
+        </ul>
+      </aside>
+      <article className="auth-card">
+        <h1>Welcome back</h1>
+        <p className="subtitle">Sign in to manage your subscriptions</p>
+        <Alert type="error" message={error} />
+        <form onSubmit={handleSubmit} className="form" noValidate>
+          <label htmlFor="login-email">
+            Email
+            <input
+              id="login-email"
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              required
+              autoComplete="email"
+            />
+          </label>
+          <label htmlFor="login-password">
+            Password
+            <input
+              id="login-password"
+              type="password"
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              required
+              autoComplete="current-password"
+            />
+          </label>
+          <button type="submit" className="btn btn-primary btn-block" disabled={submitting}>
+            {submitting ? 'Signing in…' : 'Sign in'}
+          </button>
+        </form>
+        <p className="auth-footer">
+          No account? <Link to="/register">Register</Link>
+        </p>
+      </article>
+    </div>
   );
 }
