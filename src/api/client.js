@@ -1,15 +1,4 @@
-const RENDER_API = 'https://bridgemeebackend.onrender.com/api';
-
-/** Production always uses Render; local dev uses Vite proxy. No frontend .env required. */
-function getApiBase() {
-  const fromEnv = import.meta.env.VITE_API_URL?.trim();
-  if (fromEnv?.startsWith('http://') || fromEnv?.startsWith('https://')) {
-    return fromEnv.replace(/\/$/, '');
-  }
-  return import.meta.env.PROD ? RENDER_API : '/api';
-}
-
-const API = getApiBase();
+const API = 'https://bridgemeebackend.onrender.com/api';
 
 const getAccessToken = () => localStorage.getItem('accessToken');
 const getRefreshToken = () => localStorage.getItem('refreshToken');
