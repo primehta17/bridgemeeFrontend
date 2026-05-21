@@ -18,6 +18,7 @@ server/
 ## API endpoints
 
 Base URL: `http://localhost:5000/api`
+Base URL(WEB): `https://bridgemeebackend.onrender.com/api`
 
 ### Authentication
 
