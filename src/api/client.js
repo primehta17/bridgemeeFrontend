@@ -1,4 +1,4 @@
-const API = 'https://bridgemeebackend.onrender.com/api';
+const API = import.meta.env.VITE_API_URL;
 
 const getAccessToken = () => localStorage.getItem('accessToken');
 const getRefreshToken = () => localStorage.getItem('refreshToken');
