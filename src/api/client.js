@@ -74,10 +74,10 @@ const toQuery = (params) => {
 };
 
 export const authApi = {
-  register: (body) => api('https://bridgemeebackend.onrender.com/api/auth/register', { method: 'POST', body: JSON.stringify(body) }),
-  login: (body) => api('https://bridgemeebackend.onrender.com/api/auth/login', { method: 'POST', body: JSON.stringify(body) }),
-  logout: () => api('https://bridgemeebackend.onrender.com/api/auth/logout', { method: 'POST' }),
-  me: () => api('https://bridgemeebackend.onrender.com/api/auth/me'),
+  register: (body) => api('/auth/register', { method: 'POST', body: JSON.stringify(body) }),
+  login: (body) => api('/auth/login', { method: 'POST', body: JSON.stringify(body) }),
+  logout: () => api('/auth/logout', { method: 'POST' }),
+  me: () => api('/auth/me'),
 };
 
 export const plansApi = {
