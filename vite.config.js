@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://bridgemeebackend.onrender.com',
+        target: process.env.VITE_DEV_PROXY || 'http://localhost:5000',
         changeOrigin: true,
       },
     },
