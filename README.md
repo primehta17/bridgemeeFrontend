@@ -85,7 +85,7 @@ Password: admin123
 
 ```bash
 cd frontend
-cp .env.example .env.development
+cp .env.example .env.development .env.production
 npm install
 npm run dev            # local frontend
 npm run build          # production build
@@ -101,10 +101,8 @@ npm run preview        # preview production build locally
 Copy the example file before your first run:
 
 ```bash
-cp .env.example .env.development .env.development
+cp .env.example .env.development .env.production
 ```
-
-Env files that contain `VITE_API_URL` are gitignored (see `frontend/.gitignore`). Commit only `.env.example`.
 
 ### Environment Files
 
