@@ -5,9 +5,8 @@ import Navbar from './components/Navbar';
 import SkipLink from './components/layout/SkipLink';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoadingState from './components/ui/LoadingState';
-
-const Login = lazy(() => import('./pages/Login'));
-const Register = lazy(() => import('./pages/Register'));
+import Login from './pages/Login';
+import Register from './pages/Register';
 const UserDashboard = lazy(() => import('./pages/UserDashboard'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 

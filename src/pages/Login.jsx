@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { authApi } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import Alert from '../components/ui/Alert';
+import InfoTooltip from '../components/ui/InfoTooltip';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function Login() {
@@ -16,13 +17,9 @@ export default function Login() {
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      navigate(user.role === 'admin' ? '/admin' : '/dashboard', { replace: true });
-    }
-  }, [user, navigate]);
-
-  if (user) return null;
+  if (user) {
+    return <Navigate to={user.role === 'admin' ? '/admin' : '/dashboard'} replace />;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,11 +44,6 @@ export default function Login() {
         <p className="auth-hero-desc">
           Subscribe, upgrade, or cancel - all in a clear dashboard built for clarity.
         </p>
-        <ul className="auth-hero-list">
-          <li>Compare plans side by side</li>
-          <li>Secure mock checkout for demos</li>
-          <li>Full subscription history</li>
-        </ul>
       </aside>
       <article className="auth-card">
         <h1>Welcome back</h1>
@@ -70,7 +62,9 @@ export default function Login() {
             />
           </label>
           <label htmlFor="login-password">
-            Password
+            <span className="label-row">
+              Password
+            </span>
             <input
               id="login-password"
               type="password"

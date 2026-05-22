@@ -1,9 +1,14 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { authApi } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import Alert from '../components/ui/Alert';
+import InfoTooltip from '../components/ui/InfoTooltip';
 import { usePageMeta } from '../hooks/usePageMeta';
+
+const REGISTER_TIPS = [
+  '8+ chars, letter and number'
+];
 
 export default function Register() {
   usePageMeta({
@@ -16,13 +21,9 @@ export default function Register() {
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      navigate(user.role === 'admin' ? '/admin' : '/dashboard', { replace: true });
-    }
-  }, [user, navigate]);
-
-  if (user) return null;
+  if (user) {
+    return <Navigate to={user.role === 'admin' ? '/admin' : '/dashboard'} replace />;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,11 +48,6 @@ export default function Register() {
         <p className="auth-hero-desc">
           Create your account in seconds, then browse plans and subscribe when you are ready.
         </p>
-        <ul className="auth-hero-list">
-          <li>No active plan required to register</li>
-          <li>Switch or cancel anytime</li>
-          <li>Demo payments - no real charges</li>
-        </ul>
       </aside>
       <article className="auth-card">
         <h1>Create account</h1>
@@ -81,7 +77,10 @@ export default function Register() {
             />
           </label>
           <label htmlFor="register-password">
-            Password (8+ chars, letter and number)
+            <span className="label-row">
+              Password
+              <InfoTooltip items={REGISTER_TIPS} label="Registration details" />
+            </span>
             <input
               id="register-password"
               type="password"
